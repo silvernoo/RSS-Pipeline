@@ -18,7 +18,8 @@ var node []string
 
 func main() {
 	if len(os.Args) < 3 {
-		println("demo : ./rss 3600 http://127.0.0.1:6800/jsonrpc")
+		println("demo :   ./rss 3600 http://127.0.0.1:6800/jsonrpc")
+		return
 	}
 	sec, _ := strconv.Atoi(os.Args[1])
 	ticker := time.NewTicker(time.Second * time.Duration(sec))
