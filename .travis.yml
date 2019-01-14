@@ -1,0 +1,19 @@
+language: go
+go:
+  - "1.11"
+env:
+  global:
+    - GO111MODULE=on
+before_deploy: make -j releases
+deploy:
+  provider: releases
+  prerelease: true
+  skip_cleanup: true
+  api_key:
+    secure: ordtgmoqQnp3NVwfS9Ie2eHhGxeiqk/Ry9RqAosqb8IqCFncAgLGrftcnYKt+1qHqyhldsRdK9++Wm/+RVRhIh33isv9aBFEhviwk/lZafyJJaoKrwnVbyBiTcLw2w/rcSxCVv+PLZ02bjHawgpoMFAxvg+c40b5x1nFlLIoJenSmXyaEYtxGa6hB6FH3B4Z9eHi1T8J4SWmVWzxyLlDSJJQbmRMR9LBAS69NzYBUWKyMS+3tHjo1Rx0XD+wKvXevB0EaU5i9fNnEw5unqmY/Cmmh8n5w7gQ1OYm3JX1J+vOWlS1yxcICt3HXgEgrP4fMjOMQCb2ANGBSFsQIKZPgpcP40tS0SSPpSPaRra2TVNopVzolyKY9xuoBZkNYup9THgJF/40HRaZx1yhvacTq91SOD13HPCZvPRUCUD23q0gQY88iLOYcJgJ8ZjPGZFPROYhIuwSPJvqozekTQhWhrZyZWSUut+wPwyOp0s+nyIQ8sQhE+rAhvAhBCL+/6NjnwYDon+hKhErSiJ9uQFCNG8iEH/tgtpMswL7a4VF3Hk7W2WTI5qoMShJvUSfFFs/Aw4pLDGzW3L/rJrzKtP6YTpQarTTos5eDVTkcCplaJqgjKR/XH/RdOdRBySDStZtixX4MtaY8b8k9QCNJWXTns+Fxqw8GPo6UzuFQqzN/xU=
+  file: bin/*
+  file_glob: true
+  on:
+    repo: silvernoo/RSS-Pipeline
+    branch: master
+    tags: true
